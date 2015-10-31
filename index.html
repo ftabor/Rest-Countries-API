@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>REST Countries</title>
+  <link rel="stylesheet" type="text/sass" href="styles.sass">
+</head>
+<body>
+<h1>Country Information Grabber</h1>
+
+</br>
+<a href="#" class="btn btn-green" id="get-regions">Get regions!</a>
+
+</br></br>
+
+   <form>
+        <label for="select">Region</label>
+        <div class="form-select">
+          <select id="region-select" name="city">
+            <option value="default">-- Select a Region --</option>
+          </select>
+        </div>
+     
+       <label for="select">Country</label>
+        <div class="form-select">
+          <select id="country-select" name="city">
+            <option value="default">-- Select a Country --</option>
+          </select>
+        </div>
+    </form>
+
+
+
+<div id="results"><p></p></div>
+<p>This is an experimentation of the<a href="https://restcountries.eu/"> REST Country API Service</a></p>
+</body>
+  <script type="text/javascript" src="js/jquery.js"></script>
+ <script src="js/countries_jquery.js"></script>
+</body>
+</html>

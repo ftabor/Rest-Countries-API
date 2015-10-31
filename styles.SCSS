@@ -1,0 +1,168 @@
+
+/* Colors */
+$color-white: #fff;
+$color-light-green-grey: #f5fff2; /* f2fbff */
+$color-text-light: #8a9487;
+$color-text: lighten(#575c56, 10%);
+$color-green:#5fd570;
+
+/* Fonts */
+$font-primary: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+
+$size-width-select: 300px;
+$size-height-select: 48px;
+
+/* Button */
+@mixin button-bg($bg) {
+  background: $bg;
+  &:hover {
+    background:darken($bg,8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:darken($bg,25%);
+  } 
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+  background: -webkit-linear-gradient(top, $color-light-green-grey 0%, $color-white 75%) no-repeat;
+  background: -moz-linear-gradient(top, $color-light-green-grey 0%, $color-white 75%) no-repeat;
+  background: -ms-linear-gradient(top, $color-light-green-grey 0%, $color-white 75%) no-repeat;
+  background: linear, to bottom, $color-light-green-grey 0%, $color-white 75% no-repeat;
+  font-family: $font-primary;
+  color:$color-text;
+  font-weight:300;
+  padding: 0 5%;
+}
+
+
+h1 {
+  font-weight:100;
+  font-size:5em;
+  color: darken($color-green, 15%);
+  text-shadow: 1px 1px 0 $color-white;
+  padding: 10px;
+}
+p {
+  font-size:1.25em;
+  z-index:1;
+  position:relative;
+  padding: 10px;
+}
+
+a {
+  &.social {
+    display:inline-block;
+    color:darken($color-green, 15%);
+    margin-right:1em;
+  }
+}
+
+.btn {
+ color:white;
+ text-decoration:none;
+ padding:10px;
+ border-radius:3px;
+ font-size:2em;
+}
+
+.btn-green {
+   @include button-bg(#2ecc71);
+}
+
+
+form {
+  label {
+    font-weight:600;
+    display: inline-block;
+    margin:0 0 0.5em 0;
+    padding: 10px;
+  }
+  .form-select {
+    position:relative;
+    width:$size-width-select;
+    z-index:10;
+    padding: 10px;
+    &:after {
+      content: '▸';
+      position: absolute;
+      top: 0;
+      right: 1em;
+      z-index: 1;
+      color: $color-text-light;
+      line-height: $size-height-select;
+      font-size: 1em;
+    }
+    .select {
+      width:$size-width-select;
+      height:$size-height-select;
+      line-height:$size-height-select;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      padding:0 1em;
+      border-radius:4px;
+      border:1px solid lighten($color-text-light, 30%);
+      background: -webkit-linear-gradient(bottom, $color-light-green-grey -20%, $color-white 110%) no-repeat;
+      background: -moz-linear-gradient(bottom, $color-light-green-grey -20%, $color-white 110%) no-repeat;
+      background: -ms-linear-gradient(bottom, $color-light-green-grey -20%, $color-white 110%) no-repeat;
+      background: linear, to top, $color-light-green-grey -20%, $color-white 110% no-repeat;
+      color:$color-text-light;
+      cursor:pointer;
+      transition: all 0.4s ease;
+
+      &:hover, &:focus {
+        border-color:lighten($color-green, 15%);
+        box-shadow: 0 0 5px lighten($color-green, 20%);
+        outline:0;
+      }
+    }
+    .select-options {
+      display:none;
+      position:absolute;
+      z-index:10;
+      top:0;
+      left:$size-width-select;
+      width:$size-width-select;
+      list-style-type: none;
+      margin: 0 0 0 1em;
+      padding:0;
+      border-radius:4px;
+      border:1px solid lighten($color-text-light, 20%);
+      box-shadow: 0 0 5px lighten($color-green, 30%);
+      background: -webkit-linear-gradient(bottom, $color-light-green-grey 0%, $color-white 110%) no-repeat;
+      background: -moz-linear-gradient(bottom, $color-light-green-grey 0%, $color-white 110%) no-repeat;
+      background: -ms-linear-gradient(bottom, $color-light-green-grey 0%, $color-white 110%) no-repeat;
+      background: linear, to top, $color-light-green-grey 0%, $color-white 110% no-repeat;
+      color:$color-text-light;
+      li {
+        padding:0.5em 1em;
+        cursor:pointer;
+        text-shadow:1px 0px 0 $color-white;
+        &:hover {
+          color:$color-white;
+          background:$color-green;
+          text-shadow:1px 0px 0 darken($color-green, 20%);
+        }
+      }
+      &:before {
+        content: '◂';
+        position: absolute;
+        top: -3px;
+        left: -15px;
+        font-size: 38px;
+      }
+    }
+  }
+}
+
+.hidden {
+  display:none;
+}
